@@ -15,3 +15,4 @@ Required secrets in this repo:
 - QA_REPO_TOKEN: a token with permission to dispatch workflows in the QA repo
 
 Update the QA repo target in .github/workflows/pr-smoke.yml if your QA repo is different.
+PR smoke test Tue 31 Mar 2026 20:05:31 +08
