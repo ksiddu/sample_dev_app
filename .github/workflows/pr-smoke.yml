@@ -1,0 +1,32 @@
+name: Trigger QA Smoke
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+env:
+  QA_REPO: ksiddu/sample_playwright_py
+  APP_REPO: ${{ github.repository }}
+
+jobs:
+  trigger-qa-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.QA_REPO_TOKEN }}
+          script: |
+            const [owner, repo] = process.env.QA_REPO.split("/")
+            await github.rest.repos.createDispatchEvent({
+              owner,
+              repo,
+              event_type: "qa-smoke",
+              client_payload: {
+                repo: process.env.APP_REPO,
+                ref: context.sha
+              }
+            })
