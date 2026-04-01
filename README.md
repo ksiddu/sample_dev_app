@@ -16,3 +16,4 @@ Required secrets in this repo:
 
 Update the QA repo target in .github/workflows/pr-smoke.yml if your QA repo is different.
 PR smoke test Wed  1 Apr 2026 12:11:39 +08
+PR smoke test Wed  1 Apr 2026 12:32:12 +08
