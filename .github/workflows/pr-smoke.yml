@@ -12,7 +12,8 @@ env:
   APP_REPO: ${{ github.repository }}
 
 jobs:
-  trigger-qa-smoke:
+  qa-smoke-gate:
+    name: QA Smoke Gate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
